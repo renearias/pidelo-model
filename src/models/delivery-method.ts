@@ -1,9 +1,15 @@
-export class DeliveryMethod{
-    _id:string;
-    name:string;
-    key?:string;
-    owner: string;
-    radio: number;
-    geolocation: any;
-    polygon_area?: any;
+import { Model } from './abstract-model';
+
+class DeliveryMethod extends Model {
+  _id: string;
+  name: string;
+  key?: string;
+  default_price: number;
+  owner: string;
+  radio: number;
+  geolocation: any;
+  price_zones?: any;
+  polygon_area?: any;
 }
+
+export default DeliveryMethod;

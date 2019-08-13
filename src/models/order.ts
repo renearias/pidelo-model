@@ -1,20 +1,12 @@
-/**
- * A generic model that our Master-Detail pages list, create, and delete.
- *
- * Change "Item" to the noun your app will use. For example, a "Contact," or a
- * "Customer," or a "Animal," or something like that.
- *
- * The Items service manages creating instances of Item, so go ahead and rename
- * that something that fits your app as well.
- */
-import { OrderItem } from './order-item';
-import { Business } from './business';
-import { DeliveryMethod } from './delivery-method';
-// import {Product} from './product';
+import { Model } from './abstract-model';
+import Address from './address';
+import Business from './business';
+import DeliveryMethod from './delivery-method';
+import OrderItem from './order-item';
 import * as firebase from 'firebase/app';
 import { OrderStatus, Rate } from '../enums';
 
-export class Order {
+class Order extends Model {
   acceptTerms = false;
   paymentMethod: any;
   business: string;
@@ -28,15 +20,15 @@ export class Order {
   rejected = false;
   rejectedAt: Date | firebase.firestore.Timestamp;
   delivered = false;
-  deliveryAddress: any;
+  deliveryAddress: Address;
   deliveredAt: Date | firebase.firestore.Timestamp;
   deliveryMethod: DeliveryMethod;
   deliveryCost: number;
   howMuchPay: number;
   items: OrderItem[] = [];
-  // status: any;
+  // status?: any;
   deferredDeliveryTime?: any;
-
+  
   /**
    * Obtiene o establece el momento en que inicia la entrega del pedido.
    */
@@ -51,14 +43,6 @@ export class Order {
    * Obtiene o establece el momento en que califica el pedido.
    */
   ratedAt?: Date | firebase.firestore.Timestamp;
-
-  constructor(fields: any) {
-    // Quick and dirty extend/assign fields to this model
-    for (const f in fields) {
-      this[f] = fields[f];
-    }
-  }
-
   getSubTotalOrder() {
     let total = 0;
     this.items.forEach((e: OrderItem) => {
@@ -119,3 +103,5 @@ export class Order {
     return status;
   }
 }
+
+export default Order;

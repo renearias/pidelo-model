@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+import { Model } from './abstract-model';
 
-export class Product {
+class Product extends Model {
   id: string;
   category: any;
   sub_category: any;
@@ -44,18 +40,8 @@ export class Product {
   requestBy: any;
   createdBy: any;
   createdAt: Date;
-
   name?: string;
   description?: string;
-
-  constructor(fields: any) {
-    // Quick and dirty extend/assign fields to this model
-    for (const f in fields) {
-      if (fields[f]) {
-        this[f] = fields[f];
-      }
-    }
-  }
 
   addChild(product: Product) {
     this.children.push(product);
@@ -72,4 +58,15 @@ export class Product {
     this.createdAt = new Date();
     this.order = 1;
   }
+
+  initializeForImport() {
+    this.accepted = true;
+    this.pending = false;
+    this.enabled = true;
+    this.rejected = false;
+    this.exclusive = false;
+  }
 }
+
+
+export default Product;
