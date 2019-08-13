@@ -1,1 +1,1 @@
-import './models';
+export * from './models';
