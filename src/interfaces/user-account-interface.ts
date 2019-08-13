@@ -1,13 +1,8 @@
+import { Roles } from '../models/roles';
 import * as firebase from 'firebase/app';
-import 'firebase/auth';
 
-import Roles from './roles';
-
-interface UserAccount extends firebase.User {
-  // _id?: string;
+export interface UserAccountInterface extends firebase.User {
   uid: string;
-  key?: string;
-
   name: string;
   email: string;
   password: string;
@@ -16,5 +11,3 @@ interface UserAccount extends firebase.User {
   type: string;
   roles?: Roles;
 }
-
-export default UserAccount;
