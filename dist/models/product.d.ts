@@ -1,4 +1,5 @@
-export declare class Product {
+import { Model } from './abstract-model';
+declare class Product extends Model {
     id: string;
     category: any;
     sub_category: any;
@@ -40,7 +41,8 @@ export declare class Product {
     createdAt: Date;
     name?: string;
     description?: string;
-    constructor(fields: any);
     addChild(product: Product): this;
     setForRequest(): void;
+    initializeForImport(): void;
 }
+export default Product;

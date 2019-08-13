@@ -1,21 +1,24 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 Object.defineProperty(exports, "__esModule", { value: true });
-/**
- * A generic model that our Master-Detail pages list, create, and delete.
- *
- * Change "Item" to the noun your app will use. For example, a "Contact," or a
- * "Customer," or a "Animal," or something like that.
- *
- * The Items service manages creating instances of Item, so go ahead and rename
- * that something that fits your app as well.
- */
-var Item = /** @class */ (function () {
-    function Item(fields) {
-        // Quick and dirty extend/assign fields to this model
-        for (var f in fields) {
-            this[f] = fields[f];
-        }
+var abstract_model_1 = require("./abstract-model");
+var Item = /** @class */ (function (_super) {
+    __extends(Item, _super);
+    function Item() {
+        return _super !== null && _super.apply(this, arguments) || this;
     }
     return Item;
-}());
-exports.Item = Item;
+}(abstract_model_1.Model));
+exports.default = Item;

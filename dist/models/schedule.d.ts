@@ -1,10 +1,11 @@
-import { WeekDay } from "@angular/common";
-export declare class Schedule {
+import { WeekDay } from '@angular/common';
+import { Model } from './abstract-model';
+declare class Schedule extends Model {
     _id?: string;
     key?: string;
     business_id: string;
     days: WeekDay[];
     from: Date;
     to: Date;
-    constructor(fields: any);
 }
+export default Schedule;

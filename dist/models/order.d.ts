@@ -1,18 +1,11 @@
-/**
- * A generic model that our Master-Detail pages list, create, and delete.
- *
- * Change "Item" to the noun your app will use. For example, a "Contact," or a
- * "Customer," or a "Animal," or something like that.
- *
- * The Items service manages creating instances of Item, so go ahead and rename
- * that something that fits your app as well.
- */
-import { OrderItem } from './order-item';
-import { Business } from './business';
-import { DeliveryMethod } from './delivery-method';
+import { Model } from './abstract-model';
+import Address from './address';
+import Business from './business';
+import DeliveryMethod from './delivery-method';
+import OrderItem from './order-item';
 import * as firebase from 'firebase/app';
 import { OrderStatus, Rate } from '../enums';
-export declare class Order {
+declare class Order extends Model {
     acceptTerms: boolean;
     paymentMethod: any;
     business: string;
@@ -26,7 +19,7 @@ export declare class Order {
     rejected: boolean;
     rejectedAt: Date | firebase.firestore.Timestamp;
     delivered: boolean;
-    deliveryAddress: any;
+    deliveryAddress: Address;
     deliveredAt: Date | firebase.firestore.Timestamp;
     deliveryMethod: DeliveryMethod;
     deliveryCost: number;
@@ -46,7 +39,6 @@ export declare class Order {
      * Obtiene o establece el momento en que califica el pedido.
      */
     ratedAt?: Date | firebase.firestore.Timestamp;
-    constructor(fields: any);
     getSubTotalOrder(): number;
     getTotalOrder(): number;
     packOrder(dateTime: any, customer: any, name: any, phone?: any, address?: any): void;
@@ -59,3 +51,4 @@ export declare class Order {
      */
     readonly status: OrderStatus;
 }
+export default Order;

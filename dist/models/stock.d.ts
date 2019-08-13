@@ -1,6 +1,7 @@
-import { Business } from './business';
-import { Product } from './product';
-export declare class Stock {
+import { Model } from './abstract-model';
+import Business from './business';
+import Product from './product';
+declare class Stock extends Model {
     business: Business;
     businessRef: any;
     key: string;
@@ -8,5 +9,5 @@ export declare class Stock {
     productRef: any;
     price: number;
     quantity: number;
-    constructor(fields: any);
 }
+export default Stock;

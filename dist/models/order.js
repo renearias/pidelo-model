@@ -1,21 +1,34 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 Object.defineProperty(exports, "__esModule", { value: true });
+var abstract_model_1 = require("./abstract-model");
 var enums_1 = require("../enums");
-var Order = /** @class */ (function () {
-    function Order(fields) {
-        this.acceptTerms = false;
-        this.accepted = false;
-        this.rejected = false;
-        this.delivered = false;
-        this.items = [];
+var Order = /** @class */ (function (_super) {
+    __extends(Order, _super);
+    function Order() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.acceptTerms = false;
+        _this.accepted = false;
+        _this.rejected = false;
+        _this.delivered = false;
+        _this.items = [];
         /**
          * Obtiene o establece la calificación del pedido
          */
-        this.rate = 0;
-        // Quick and dirty extend/assign fields to this model
-        for (var f in fields) {
-            this[f] = fields[f];
-        }
+        _this.rate = 0;
+        return _this;
     }
     Order.prototype.getSubTotalOrder = function () {
         var total = 0;
@@ -78,5 +91,5 @@ var Order = /** @class */ (function () {
         configurable: true
     });
     return Order;
-}());
-exports.Order = Order;
+}(abstract_model_1.Model));
+exports.default = Order;

@@ -1,9 +1,6 @@
+import { Model } from './abstract-model';
 import { Roles } from './roles';
-/**
- *  Account Class
- *
- */
-export declare class Account {
+declare class Account extends Model {
     uid?: string;
     name: string;
     email: string;
@@ -11,6 +8,6 @@ export declare class Account {
     profilePic?: string;
     phone: string;
     type: string;
-    roles?: Roles;
-    constructor(fields: any);
+    roles: Roles;
 }
+export default Account;

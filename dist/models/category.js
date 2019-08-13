@@ -14,11 +14,11 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var abstract_model_1 = require("./abstract-model");
-var Address = /** @class */ (function (_super) {
-    __extends(Address, _super);
-    function Address() {
+var Category = /** @class */ (function (_super) {
+    __extends(Category, _super);
+    function Category() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    return Address;
+    return Category;
 }(abstract_model_1.Model));
-exports.default = Address;
+exports.default = Category;
