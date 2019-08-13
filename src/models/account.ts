@@ -1,11 +1,7 @@
+import { Model } from './abstract-model';
 import { Roles } from './roles';
 
-/**
- *  Account Class
- *
- */
-
-export class Account {
+class Account extends Model {
   uid?: string;
   name: string;
   email: string;
@@ -13,14 +9,7 @@ export class Account {
   profilePic?: string;
   phone: string;
   type: string;
-  roles?: Roles;
-
-  constructor(fields: any) {
-    // Quick and dirty extend/assign fields to this model
-    for (const f in fields) {
-      if (fields[f]) {
-        this[f] = fields[f];
-      }
-    }
-  }
+  roles: Roles;
 }
+
+export default Account;

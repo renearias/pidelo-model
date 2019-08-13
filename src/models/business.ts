@@ -1,6 +1,7 @@
-import { Address } from '.';
-import { DeliveryMethod } from './delivery-method';
-import { Schedule } from './schedule';
+import { Model } from './abstract-model';
+import Address from './address';
+import DeliveryMethod from './delivery-method';
+import Schedule from './schedule';
 
 /**
  * A generic model that our Master-Detail pages list, create, and delete.
@@ -11,9 +12,10 @@ import { Schedule } from './schedule';
  * The Items service manages creating instances of Item, so go ahead and rename
  * that something that fits your app as well.
  */
-export class Business {
+class Business extends Model {
   _id: string;
   active: boolean;
+  email: string;
   name: string;
   img: string;
   profilePic: string;
@@ -24,21 +26,17 @@ export class Business {
   ruc: string;
   minOrder: any;
   geolocation: any;
+  custom_area: string;
+  polygon_area: any;
   phone: any;
   payment_methods: Array<any> = [];
+  activeCategories: any;
   delivery_methods: DeliveryMethod[] = [];
   timeToAttend: any;
   pendingOrders?: number;
   totalOrders?: number;
   canDeferOrders: boolean;
   schedule?: Schedule;
-
-  constructor(fields: any) {
-    // Quick and dirty extend/assign fields to this model
-    for (const f in fields) {
-      if (fields[f]) {
-        this[f] = fields[f];
-      }
-    }
-  }
 }
+
+export default Business;
