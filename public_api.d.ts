@@ -3,4 +3,4 @@
  * @description
  * Entry point for all public APIs of this package.
  */
-export * from './dist/models';
+export * from './dist';
