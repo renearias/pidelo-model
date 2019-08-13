@@ -9,7 +9,7 @@ class Account extends Model {
   profilePic?: string;
   phone: string;
   type: string;
-  roles: Roles;
+  roles?: Roles;
 }
 
 export default Account;
