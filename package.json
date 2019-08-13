@@ -1,0 +1,26 @@
+{
+  "name": "@pidelo/models",
+  "version": "0.0.1",
+  "description": "Pidelo Models",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renearias/pidelo-model.git"
+  },
+  "author": "Rene Arias",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/renearias/pidelo-model/issues"
+  },
+  "homepage": "https://github.com/renearias/pidelo-model#readme",
+  "dependencies": {
+    "@angular/common": "^8.2.2",
+    "@angular/core": "^8.2.2",
+    "firebase": "^6.3.5",
+    "rxjs": "^6.5.2"
+  }
+}
