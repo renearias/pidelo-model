@@ -8,7 +8,7 @@ import {
   OrderItem,
   Stock,
   Schedule
-} from './models';
+} from './dist';
 export {
   Address,
   Business,
