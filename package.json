@@ -19,7 +19,7 @@
   "homepage": "https://github.com/renearias/pidelo-model#readme",
   "dependencies": {
     "@angular/common": "^8.2.2",
-    "@angular/core": "^8.2.2",
+    "@angular/core": "^11.0.5",
     "firebase": "^6.3.5",
     "rxjs": "^6.5.2"
   }
